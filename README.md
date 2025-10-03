@@ -19,17 +19,16 @@
 
 ## 🚀 Quick Start
 
-#### Clone and setup
-git clone https://github.com/yourusername/baseline-migrator-pro
+To run the application on real-world problems, you'll want to analyze your own **JavaScript files** and use the **AI-powered features** for migration suggestions.  
+*(For the best experience, use Visual Studio Code.)*
+
+### 1. Clone and Setup
+```bash
+git clone https://github.com/Rohit-panda4/baseline-migrator-pro.git
 cd baseline-migrator-pro
 npm install
-
-#### Optional: Add your Gemini API key for AI features
-echo "GEMINI_API_KEY=your-key-here" > .env
-
-#### Analyze legacy code
-npm run demo
 ```
+
 ## 💡 What Makes This Special
 
 ### Technical Excellence
@@ -70,7 +69,6 @@ Fix: Replace with const/let (widely supported in Baseline)
 🔴 High priority: 3 (immediate attention needed)
 🟡 Medium priority: 18 (should be updated)
 🔵 Low priority: 6 (nice to have)
-```
 
 #### 🛠️ Installation
 
