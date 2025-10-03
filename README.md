@@ -79,8 +79,9 @@ Fix: Replace with const/let (widely supported in Baseline)
 ##### Setup
 ```Global installation
 npm install -g baseline-migrator-pro
-
-or local installation
+```
+or 
+```local installation
 npm install baseline-migrator-pro
 ```
 
@@ -103,11 +104,12 @@ baseline-migrate analyze src/**/*.js
 
 
 ##### Available Commands
+```
 baseline-migrate --help # Show all options
-baseline-migrate analyze # Basic pattern detection
-baseline-migrate analyze --ai # AI-powered suggestions
 baseline-migrate demo # Run comprehensive demo
-
+node src/index.js analyze /path/to/your/javascript/file.js Basic pattern detection
+node src/index.js analyze /path/to/your/javascript/file.js --ai # AI-powered suggestions
+```
 
 #### 🏗️ Architecture
 ```src/
