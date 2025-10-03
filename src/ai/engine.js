@@ -23,11 +23,12 @@ export class AIEngine {
     
     try {
       this.genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-      this.model = this.genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+      // ✅ Updated model
+      this.model = this.genAI.getGenerativeModel({ model: 'gemini-2.0-flash-exp' });
       this.initialized = true;
       
       console.log(chalk.green('🤖 Google Gemini AI initialized successfully!'));
-      console.log(chalk.gray('   Using Gemini 1.5 Flash for intelligent migration suggestions'));
+      console.log(chalk.gray('   Using Gemini 2.0 Flash Experimental for intelligent migration suggestions'));
       return true;
     } catch (error) {
       console.log(chalk.red('❌ Failed to initialize Gemini AI:', error.message));
@@ -95,7 +96,7 @@ Keep response focused and under 150 words.`;
       return {
         suggestion: suggestion,
         confidence: 0.9,
-        model: 'gemini-1.5-flash'
+        model: 'gemini-2.0-flash-exp'   // ✅ Updated model reference
       };
 
     } catch (error) {
@@ -171,91 +172,8 @@ element.innerHTML = userInput;
 // After (safe)
 element.textContent = userInput;
 \`\`\``,
-
-      equality: `**🔍 Problem Analysis:**
-Loose equality (==) performs type coercion which can cause unexpected comparisons.
-
-**✅ Baseline Solution:**
-Strict equality (===) compares both value and type without coercion.
-
-**🔄 Code Migration:**
-\`\`\`javascript
-// Before
-if (value == '5') // true for both 5 and '5'
-
-// After
-if (value === '5') // only true for string '5'
-\`\`\``,
-
-      Promise: `**🔍 Problem Analysis:**
-Promise constructors are verbose and can be error-prone with manual resolve/reject handling.
-
-**✅ Baseline Solution:**
-async/await provides cleaner, more readable asynchronous code.
-
-**🔄 Code Migration:**
-\`\`\`javascript
-// Before
-new Promise((resolve) => {
-  setTimeout(() => resolve('done'), 1000);
-});
-
-// After
-await new Promise(resolve => setTimeout(resolve, 1000));
-\`\`\``,
-
-      function: `**🔍 Problem Analysis:**
-Function declarations have different hoisting behavior and lack lexical this binding.
-
-**✅ Baseline Solution:**
-Arrow functions provide cleaner syntax and predictable this binding.
-
-**🔄 Code Migration:**
-\`\`\`javascript
-// Before
-function handleClick(event) {
-  console.log(this);
-}
-
-// After
-const handleClick = (event) => {
-  console.log('Event handled');
-};
-\`\`\``,
-
-      concatenation: `**🔍 Problem Analysis:**
-String concatenation with + is less readable and harder to maintain with complex expressions.
-
-**✅ Baseline Solution:**
-Template literals provide cleaner syntax with expression interpolation.
-
-**🔄 Code Migration:**
-\`\`\`javascript
-// Before
-const message = 'Hello ' + name + ', you have ' + count + ' items';
-
-// After
-const message = \`Hello \${name}, you have \${count} items\`;
-\`\`\``,
-
-      with: `**🔍 Problem Analysis:**
-with statements create ambiguous scope and are prohibited in strict mode due to performance issues.
-
-**✅ Baseline Solution:**
-Use explicit object property access for clarity and performance.
-
-**🔄 Code Migration:**
-\`\`\`javascript
-// Before (deprecated)
-with (config) {
-  console.log(apiUrl);
-}
-
-// After
-console.log(config.apiUrl);
-\`\`\``
     };
-    
+
     return {
       suggestion: demoSuggestions[issue.pattern] || `**🔍 Problem Analysis:**
 This legacy pattern may have compatibility or performance issues.
@@ -322,7 +240,7 @@ Check MDN documentation for current best practices.`,
     });
     
     if (confidence > 0) {
-      formatted += chalk.dim(`\n✨ Google Gemini Confidence: ${Math.round(confidence * 100)}% | Model: gemini-1.5-flash`);
+      formatted += chalk.dim(`\n✨ Google Gemini Confidence: ${Math.round(confidence * 100)}% | Model: gemini-2.0-flash-exp`);
     }
     
     return formatted;
@@ -332,7 +250,7 @@ Check MDN documentation for current best practices.`,
     return {
       requestCount: this.requestCount,
       initialized: this.initialized,
-      model: 'gemini-1.5-flash'
+      model: 'gemini-2.0-flash-exp'   // ✅ Updated model reference
     };
   }
 }
