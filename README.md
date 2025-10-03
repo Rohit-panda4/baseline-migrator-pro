@@ -36,7 +36,7 @@ npm install
 
 📊 **Official Data Integration**: Leverages 279 web features from Chrome's official web-features package
 
-🤖 **AI-Powered Suggestions**: Google Gemini 1.5 Flash provides context-aware migration recommendations
+🤖 **AI-Powered Suggestions**: Google Gemini 2.0 Flash provides context-aware migration recommendations
 
 🏗️ **Production Architecture**: Smart rate limiting, comprehensive error handling, and graceful degradation
 
